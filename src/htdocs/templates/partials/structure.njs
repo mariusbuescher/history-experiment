@@ -24,3 +24,19 @@
     {%- elif number == 11 -%}eleven-columns
     {%- elif number == 12 -%}twelve-columns{%- endif %}
 {%- endmacro %}
+
+{% macro tabs(tabs) %}
+<div class="auto-init tabs" data-module="modules/tabs">
+    <ul>
+    {% for tab in tabs -%}
+        <li><a href="#tabs-{{ loop.index0}}">{{ tab.title }}</a></li>
+    {%- endfor %}
+    </ul>
+    {% for tab in tabs -%}
+    <div id="tabs-{{ loop.index0}}">
+        {% import 'partials/content.njs' as contentTemplate %}
+        {{ contentTemplate.content(tab.content) }}
+    </div>
+    {%- endfor %}
+</div>
+{% endmacro %}

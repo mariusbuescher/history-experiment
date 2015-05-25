@@ -14,6 +14,7 @@
 
             lodash:          '../vendor/lodash',
             jquery:          '../vendor/jquery-2.1.3',
+            jqueryui:        '../vendor/jquery-ui',
             promise:         '../vendor/shims/promise',
             nunjucks:        '../vendor/nunjucks',
             'nunjucks-slim': '../vendor/nunjucks-slim',

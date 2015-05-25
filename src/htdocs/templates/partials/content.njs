@@ -3,6 +3,9 @@
     {% if item.type == 'row' -%}
     {% import 'partials/structure.njs' as structure %}
     {{ structure.row(item.columns) }}
+    {%- elif item.type == 'tabs' -%}
+    {% import 'partials/structure.njs' as structure %}
+    {{ structure.tabs(item.tabs) }}
     {%- elif item.type == 'headline' -%}
     {% import 'partials/headlines.njs' as headlines -%}
     {{ headlines.headline(item.content) }}
