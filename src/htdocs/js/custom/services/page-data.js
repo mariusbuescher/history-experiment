@@ -41,8 +41,7 @@
          * @return {String}     The transformed URL
          */
         PageDataService.prototype.getDataUrl = function (url) {
-            url = (url.match(/.html$/)) ? url : (url.match(/\/$/)) ? url + 'index.html' : url + '/index.html';
-            url = url.replace(/.html$/, '');
+            url = App.config.transforms.pageDataTransform(url);
             url = App.config.services.pageData({ url : url });
             return url;
         };

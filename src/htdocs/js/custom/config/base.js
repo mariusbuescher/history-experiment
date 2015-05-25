@@ -26,6 +26,14 @@
                 pageData: _.template('/data<%= url %>.json')
             },
 
+            transforms: {
+                pageDataTransform: function (url) {
+                    url = (url.match(/.html$/)) ? url : (url.match(/\/$/)) ? url + 'index.html' : url + '/index.html';
+                    url = url.replace(/.html$/, '');
+                    return url;
+                }
+            },
+
             set: function( module, options ) {
                 moduleOptions[module] = options;
             },
