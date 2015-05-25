@@ -23,16 +23,20 @@
                 this.routeChange(e.state);
             }, this));
 
-            window.document.addEventListener('click', _.bind(function (e) {
-                if (e.target !== e.currentTarget && e.target.hasAttribute('href')) {
-                    e.preventDefault();
-                    var url = e.target.getAttribute('href');
+            if (window.history) {
 
-                    this.routeChange(url)
+                window.document.addEventListener('click', _.bind(function (e) {
+                    if (e.target !== e.currentTarget && e.target.hasAttribute('href')) {
+                        e.preventDefault();
+                        var url = e.target.getAttribute('href');
 
-                    window.history.pushState(url, null, e.target.getAttribute('href'));
-                }
-            }, this));
+                        this.routeChange(url)
+
+                        window.history.pushState(url, null, e.target.getAttribute('href'));
+                    }
+                }, this));
+
+            }
 
         };
 
