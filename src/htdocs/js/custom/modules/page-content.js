@@ -20,6 +20,12 @@
             njEnv: null,
             loader: null,
 
+            defaults: function () {
+                return {
+                    templateUrl: ''
+                }
+            },
+
             ready: function( element, options ) {
                 this.loader = new Loader( {
                     globalScope: App,
@@ -27,6 +33,8 @@
                     autoInitSelector: '.auto-init',
                     autoInit: false
                 } );
+
+                this.options = _.extend( this.defaults(), options );
 
                 this.njEnv = new nunjucks.Environment( new nunjucks.WebLoader('/templates') );
             },
@@ -36,7 +44,7 @@
                     if (this.contentRenderer !== null) {
                         resolve(this.contentRenderer);
                     } else {
-                        this.njEnv.getTemplate('layouts/async-content.njs', true, _.bind(function (err, tmpl) {
+                        this.njEnv.getTemplate(this.options.templateUrl, true, _.bind(function (err, tmpl) {
                             this.contentRenderer = tmpl;
                             resolve(this.contentRenderer);
                         }, this ) );

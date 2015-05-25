@@ -16,7 +16,7 @@
                 <li><a href="/subfolder/page2.html">Sub-Page 2</a></li>
             </ul>
         </nav>
-        <div class="auto-init" data-module="modules/page-content">
+        <div class="auto-init" data-module="modules/page-content" data-options='{ "templateUrl" : "layouts/async-content.njs" }'>
             {% import 'partials/content.njs' as contentTemplate %}
             {{ contentTemplate.content(content) }}
         </div>
