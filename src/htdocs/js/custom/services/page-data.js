@@ -22,9 +22,11 @@
                 if (this.currentRoute !== route) {
 
                     var url = this.getDataUrl(route);
+                    var startRequest = false;
 
                     if (this.currentRequest === null ) {
                         this.currentRequest = new XMLHttpRequest();
+                        startRequest = true;
                     }
 
                     this.currentRequest.addEventListener('load', _.bind(function (xhr) {
@@ -34,8 +36,10 @@
                         resolve(this.currentData);
                     }, this));
 
-                    this.currentRequest.open('get', url, true);
-                    this.currentRequest.send();
+                    if (startRequest === true) {
+                        this.currentRequest.open('get', url, true);
+                        this.currentRequest.send();
+                    }
                 } else {
                     resolve(this.currentData);
                 }
