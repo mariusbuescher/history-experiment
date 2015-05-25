@@ -22,6 +22,10 @@
             modules: [],
             dev: true,
 
+            services: {
+                pageData: _.template('/data<%= url %>.json')
+            },
+
             set: function( module, options ) {
                 moduleOptions[module] = options;
             },

@@ -1,7 +1,10 @@
 ( function( window, define, require, requirejs, undefined ) {
     'use strict';
 
-    define(['lodash'], function ( _ ) {
+    define([
+        'app/core',
+        'lodash'
+    ], function ( App, _ ) {
 
         var PageDataService = function () {
             this.currentRoute   = null;
@@ -11,8 +14,8 @@
 
          PageDataService.prototype.getDataUrl = function (url) {
             url = (url.match(/.html$/)) ? url : (url.match(/\/$/)) ? url + 'index.html' : url + '/index.html';
-            url = url.replace(/.html$/, '.json');
-            url = '/data' + url;
+            url = url.replace(/.html$/, '');
+            url = App.config.services.pageData({ url : url });
             return url;
         };
 
