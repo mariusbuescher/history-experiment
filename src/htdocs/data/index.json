@@ -2,8 +2,18 @@
     "pagetitle" : "Home",
     "content" : [
         {
-            "type" : "headline",
-            "content" : "This is a headline!"
+            "type" : "row",
+            "columns": [
+                {
+                    "width" : 6,
+                    "content": [
+                        {
+                            "type" : "headline",
+                            "content" : "This is a headline!"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
