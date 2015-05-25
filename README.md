@@ -30,7 +30,7 @@ For loading JavaScript modules only once I used [require.js](http://requirejs.or
 
 The support for Web-Browsers was not a goal of this experiment, so there are not all Browser running htis project.
 
-Because I used the HTML5 History API without a fallback the Internet Explorer is supported from Version 10 (See [caniuse](http://caniuse.com/#search=history)). But you can only accomplish this when you use a polyfill for JavaScript Promises, e.g. [taylorhakes/promise-polyfill](https://github.com/taylorhakes/promise-polyfill). If not there is only support for Microsoft Edge Browser.
+Because I used the HTML5 History API without a fallback the Internet Explorer is supported from Version 10 (See [caniuse](http://caniuse.com/#search=history)). If History API is not supported the default behaviour (load every page) is used.
 
 ## Requirements
 
