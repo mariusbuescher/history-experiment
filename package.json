@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run render && npm run styles",
+
     "render": "node tasks/templates.js",
     "styles": "node-sass src/htdocs/SCSS/main.scss src/htdocs/css/main.css",
+
     "watch:renderer": "node tasks/templates-watcher.js",
     "watch:styles": "npm run styles -- -w",
-    "watch": "parallelshell 'npm run watch:renderer' 'npm run watch:styles'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "parallelshell 'npm run watch:renderer' 'npm run watch:styles'"
   },
   "author": "Marius Büscher",
   "license": "MIT",
