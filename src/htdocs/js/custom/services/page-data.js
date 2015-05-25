@@ -3,8 +3,9 @@
 
     define([
         'app/core',
-        'lodash'
-    ], function ( App, _ ) {
+        'lodash',
+        'detect!Promise'
+    ], function ( App, _, Promise ) {
 
         /**
          * Page data service
