@@ -4,20 +4,30 @@
     define( [
         'app/core',
 
+        'app/loader',
         'app/event_contextual',
+
         'jquery',
         'lodash',
         'nunjucks',
 
         'services/page-data'
-    ], function( App, Event, $, _, nunjucks, PageDataService ) {
+    ], function( App, Loader, Event, $, _, nunjucks, PageDataService ) {
 
         return {
 
             contentRenderer: null,
             njEnv: null,
+            loader: null,
 
             ready: function( element, options ) {
+                this.loader = new Loader( {
+                    globalScope: App,
+                    elementScope: element,
+                    autoInitSelector: '.auto-init',
+                    autoInit: false
+                } );
+
                 this.njEnv = new nunjucks.Environment( new nunjucks.WebLoader('/templates') );
             },
 
@@ -41,9 +51,10 @@
                         contentData = data;
                         return this.initContentRenderer();
                     }, this)).then(_.bind(function (tmpl) {
-                        tmpl.render(contentData, function (err, res) {
+                        tmpl.render(contentData, _.bind(function (err, res) {
                             element.html(res);
-                        });
+                            this.loader.initModules();
+                        }, this));
                     }, this));
                 }, this ) );
             }
