@@ -2,8 +2,18 @@
     "pagetitle" : "Subpage 2",
     "content" : [
         {
-            "type" : "headline",
-            "content" : "I am another sub-page."
+            "type" : "row",
+            "columns": [
+                {
+                    "width": 12,
+                    "content": [
+                        {
+                            "type" : "headline",
+                            "content" : "I am another sub-page."
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
