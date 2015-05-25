@@ -6,19 +6,52 @@
         'lodash'
     ], function ( App, _ ) {
 
+        /**
+         * Page data service
+         *
+         * A service that only cares for fetching JSON-Data for single page applications.
+         *
+         * @class
+         * @classdesc Page data service class
+         */
+
+        /**
+         * Constructor
+         *
+         * @constructs PageDataService
+         * @returns {
+         *    {
+         *      currentRoute: null,
+         *      currentData: null,
+         *      currentRequest: null
+         *    }
+         * }
+         */
         var PageDataService = function () {
             this.currentRoute   = null;
             this.currentData    = null;
             this.currentRequest = null;
+
+            return this;
         };
 
-         PageDataService.prototype.getDataUrl = function (url) {
+        /**
+         * Gets the URL for the given url
+         * @param  {String} url The current route/url
+         * @return {String}     The transformed URL
+         */
+        PageDataService.prototype.getDataUrl = function (url) {
             url = (url.match(/.html$/)) ? url : (url.match(/\/$/)) ? url + 'index.html' : url + '/index.html';
             url = url.replace(/.html$/, '');
             url = App.config.services.pageData({ url : url });
             return url;
         };
 
+        /**
+         * Gets the Data for a given route
+         * @param  {String} route The route
+         * @return {Promise}      Promise when the data is fetched
+         */
         PageDataService.prototype.getData = function (route) {
             return new Promise(_.bind(function (resolve, reject) {
 

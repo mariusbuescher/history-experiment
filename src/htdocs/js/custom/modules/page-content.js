@@ -14,18 +14,54 @@
         'services/page-data'
     ], function( App, Loader, Event, $, _, nunjucks, PageDataService ) {
 
+        /**
+         * Basic implementation of an owlCarousel
+         *
+         * @module modules/page-content
+         * @requires vendor/nunjucks
+         * @fires beforeInit
+         * @fires beforeInit:modules/page-content
+         * @fires afterInit
+         * @fires afterInit:modules/page-content
+         */
+
         return {
 
+            /**
+             * The content renderer property
+             * @type {Object}
+             */
             contentRenderer: null,
+
+            /**
+             * The nunjucks environment
+             * @type {Object}
+             */
             njEnv: null,
+
+            /**
+             * The local loader
+             * @type {Object}
+             */
             loader: null,
 
+            /**
+             * Returns default module settings
+             * @function
+             */
             defaults: function () {
                 return {
                     templateUrl: ''
                 }
             },
 
+            /**
+             * The ready constructo method
+             *
+             * @function
+             * @param  {jQuery} element The element
+             * @param  {Object} options The options
+             */
             ready: function( element, options ) {
                 this.loader = new Loader( {
                     globalScope: App,
@@ -39,6 +75,10 @@
                 this.njEnv = new nunjucks.Environment( new nunjucks.WebLoader('/templates') );
             },
 
+            /**
+             * Initializes the content renderer
+             * @return {Promise} A Promise Object
+             */
             initContentRenderer: function () {
                 return new Promise(_.bind(function (resolve, reject) {
                     if (this.contentRenderer !== null) {
@@ -52,6 +92,13 @@
                 }, this));
             },
 
+            /**
+             * The events constructor
+             *
+             * @function
+             * @param  {jQuery} element The element
+             * @param  {Object} options The options
+             */
             events: function( element, options ) {
                 Event.on('/App/Route/change', _.bind( function (evt, route) {
                     var contentData = null;
