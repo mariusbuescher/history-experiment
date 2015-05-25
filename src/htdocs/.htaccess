@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/pages/.*$
+RewriteRule ^[_0-9a-zA-Z-_/](.*\.html)$ /pages/$0 [L]
+RewriteRule ^([_0-9a-zA-Z-_/]+)$ /pages/$1/index.html [L]
+RewriteRule ^$ /pages/index.html [L]

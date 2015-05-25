@@ -1,0 +1,9 @@
+{
+    "pagetitle" : "Home",
+    "content" : [
+        {
+            "type" : "headline",
+            "content" : "This is a headline!"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "pagetitle" : "Subpage 2",
+    "content" : [
+        {
+            "type" : "headline",
+            "content" : "I am another sub-page."
+        }
+    ]
+}
