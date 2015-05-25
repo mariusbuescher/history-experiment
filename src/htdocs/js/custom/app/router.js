@@ -26,7 +26,7 @@
             if (window.history) {
 
                 window.document.addEventListener('click', _.bind(function (e) {
-                    if (e.target !== e.currentTarget && e.target.hasAttribute('href')) {
+                    if (e.target !== e.currentTarget && e.target.hasAttribute('href') && !e.target.getAttribute('href').match(/^#/)) {
                         e.preventDefault();
                         var url = e.target.getAttribute('href');
 
