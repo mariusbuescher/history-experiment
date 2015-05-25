@@ -10,9 +10,10 @@
         'jquery',
         'lodash',
         'nunjucks',
+        'detect!Promise'
 
         'services/page-data'
-    ], function( App, Loader, Event, $, _, nunjucks, PageDataService ) {
+    ], function( App, Loader, Event, $, _, nunjucks, Promise, PageDataService ) {
 
         /**
          * Basic implementation of an owlCarousel
