@@ -10,7 +10,7 @@
         'jquery',
         'lodash',
         'nunjucks',
-        'detect!Promise'
+        'detect!Promise',
 
         'services/page-data'
     ], function( App, Loader, Event, $, _, nunjucks, Promise, PageDataService ) {
