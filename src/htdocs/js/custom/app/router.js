@@ -2,6 +2,20 @@
 
     define(['lodash', 'app/event_contextual'], function ( _, events ) {
 
+        /**
+         * Router
+         *
+         * A Router for Single Page Applications fireing an event on route change
+         *
+         * @class
+         * @classdesc Router class
+         */
+
+        /**
+         * Constructor
+         *
+         * @constructs Router
+         */
         var Router = function () {
 
             window.addEventListener('popstate', _.bind(function (e) {
@@ -22,6 +36,11 @@
 
         };
 
+        /**
+         * Route Change Method
+         * @param  {String} route The route
+         * @fires /App/Route/change
+         */
         Router.prototype.routeChange = function (route) {
             events.trigger('/App/Route/change', route);
         }
