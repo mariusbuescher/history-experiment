@@ -4,7 +4,7 @@
     require.config({
 
         paths: {
-            'vendor':        '../vendor',
+            vendor:          '../vendor',
 
             app:             'app',
             config:          'config',
@@ -15,7 +15,7 @@
             lodash:          '../vendor/lodash',
             jquery:          '../vendor/jquery-2.1.3',
             promise:         '../vendor/shims/promise',
-            'nunjucks':      '../vendor/nunjucks',
+            nunjucks:        '../vendor/nunjucks',
             'nunjucks-slim': '../vendor/nunjucks-slim',
 
             detect:          '../vendor/requirejs/detect'
