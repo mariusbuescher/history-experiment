@@ -6,6 +6,9 @@
     {%- elif item.type == 'headline' -%}
     {% import 'partials/headlines.njs' as headlines -%}
     {{ headlines.headline(item.content) }}
+    {%- elif item.type == 'copytext' -%}
+    {% import 'partials/text.njs' as text %}
+    {{ text.copytext(item.content) }}
     {%- endif %}
 {%- endfor %}
 {% endmacro %}
