@@ -27,7 +27,7 @@
 
 {% macro tabs(tabs) %}
 <div class="auto-init tabs" data-module="modules/tabs">
-    <ul>
+    <ul class="tab-menu">
     {% for tab in tabs -%}
         <li><a href="#tabs-{{ loop.index0}}">{{ tab.title }}</a></li>
     {%- endfor %}
