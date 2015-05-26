@@ -1,3 +1,5 @@
 node_modules
 src/htdocs/css
 src/htdocs/pages
+
+*.log
