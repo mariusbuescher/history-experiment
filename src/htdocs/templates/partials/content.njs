@@ -6,6 +6,9 @@
     {%- elif item.type == 'tabs' -%}
     {% import 'partials/structure.njs' as structure %}
     {{ structure.tabs(item.tabs) }}
+    {%- elif item.type == 'accordion' -%}
+    {% import 'partials/structure.njs' as structure %}
+    {{ structure.accordion(item.accordions) }}
     {%- elif item.type == 'headline' -%}
     {% import 'partials/headlines.njs' as headlines -%}
     {{ headlines.headline(item.content) }}

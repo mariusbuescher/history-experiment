@@ -40,3 +40,15 @@
     {%- endfor %}
 </div>
 {% endmacro %}
+
+{% macro accordion(accordions) -%}
+<div class="accordion auto-init" data-module="modules/accordion">
+{% for accordion in accordions -%}
+    {% import 'partials/content.njs' as contentTemplate %}
+    <h3>{{ accordion.title }}</h3>
+    <div>
+        {{ contentTemplate.content(accordion.content) }}
+    </div>
+{%- endfor %}
+</div>
+{%- endmacro %}

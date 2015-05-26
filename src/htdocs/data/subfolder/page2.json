@@ -8,8 +8,31 @@
                     "width": 12,
                     "content": [
                         {
-                            "type" : "headline",
-                            "content" : "I am another sub-page."
+                            "type": "accordion",
+                            "accordions": [
+                                {
+                                    "title": "Accordion",
+                                    "content": [
+                                        {
+                                            "type" : "headline",
+                                            "content" : "I am another sub-page."
+                                        },
+                                        {
+                                            "type": "copytext",
+                                            "content": "I am some copy text!"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Accordion 2",
+                                    "content": [
+                                        {
+                                            "type": "copytext",
+                                            "content": "This is another accordion with some nonsense content in it."
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
