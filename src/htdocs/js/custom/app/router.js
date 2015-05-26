@@ -26,7 +26,10 @@
             if (window.history) {
 
                 window.document.addEventListener('click', _.bind(function (e) {
-                    if (e.target !== e.currentTarget && e.target.hasAttribute('href') && !e.target.getAttribute('href').match(/^#/)) {
+                    if (e.target !== e.currentTarget
+                        && e.target.hasAttribute('href')
+                        && !e.target.getAttribute('href').match(/^#/)
+                        && !e.target.getAttribute('href').match(/(^http:\/\/|^https:\/\/)/)) {
                         e.preventDefault();
                         var url = e.target.getAttribute('href');
 
