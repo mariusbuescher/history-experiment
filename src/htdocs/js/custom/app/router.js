@@ -18,6 +18,8 @@
          */
         var Router = function () {
 
+            this.currentRoute = window.location.pathname;
+
             window.addEventListener('popstate', _.bind(function (e) {
                 e.preventDefault();
                 this.routeChange(e.state);
@@ -32,10 +34,11 @@
                         && !e.target.getAttribute('href').match(/(^http:\/\/|^https:\/\/)/)) {
                         e.preventDefault();
                         var url = e.target.getAttribute('href');
+                        if (this.currentRoute !== url) {
+                            this.routeChange(url)
 
-                        this.routeChange(url)
-
-                        window.history.pushState(url, null, e.target.getAttribute('href'));
+                            window.history.pushState(url, null, e.target.getAttribute('href'));
+                        }
                     }
                 }, this));
 
@@ -49,6 +52,7 @@
          * @fires /App/Route/change
          */
         Router.prototype.routeChange = function (route) {
+            this.currentRoute = route;
             events.trigger('/App/Route/change', route);
         }
 
